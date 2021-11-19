@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author index{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="d-flex justify-content-between mb-2">
+                <h3>All Authors</h3>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('author_create') }}" class="btn btn-primary">Create new</a>
+                {% endif %}
+            </div>
+            {% include 'flashMessage/_flash_messages.html.twig' %}
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Title</th>
+                    <th>Short Bio</th>
+                    <th>Phone</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for author in authors %}
+                    <tr>
+                        <td>{{ author.id }}</td>
+                        <td>{{ author.name }}</td>
+                        <td>{{ author.username }}</td>
+                        <td>{{ author.title }}</td>
+                        <td>{{ author.shortBio }}</td>
+                        <td>{{ author.phone }}</td>
+                        <td>
+                            <a href="{{ path('author_show', {'id': author.id}) }}" class="btn btn-success btn-sm">show</a>
+                            <a href="{{ path('author_edit', {'id': author.id}) }}" class="btn btn-warning btn-sm">edit</a>
+                            <a href="{{ path('author_delete', {'id': author.id}) }}" class="btn btn-danger btn-sm">delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

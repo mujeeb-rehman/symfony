@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h1>Post</h1>
+            <hr>
+            <h1 class="display-4 fst-italic">
+                {{ post.title }}
+            </h1>
+            <span class="fs-5">@{{ post.author }}</span>
+            <p class="lead my-3">
+                {{ post.body }}
+            </p>
+
+
+            <div class="d-flex">
+                <a href="{{ path('post_index') }}" class="btn btn-dark mx-2">back to list</a>
+
+                {% if is_granted('ROLE_EDITOR') %}
+                    <a href="{{ path('post_edit', {'id': post.id}) }}" class="btn btn-warning mx-2">edit</a>
+                {% endif %}
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    {{ include('post/_delete_form.html.twig') }}
+                {% endif %}
+
+
+            </div>
+            <hr>
+            {{ include('comment/_form.html.twig') }}
+            <br>
+
+
+            {% for comment in comments %}
+                <div class="row">
+                    <div class="col-6 border rounded my-2">
+                        <p class="fs-4 fw-bold fst-italic">@{{ comment.user.username }} says:</p>
+                        <p class="fs-5 fw-lighter">{{ comment.body }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

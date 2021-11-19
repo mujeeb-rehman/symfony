@@ -1,0 +1,47 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12">
+        {{ form_errors(form) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.name, 'Name', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.name) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.username, 'Username', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.username) }}
+        {{ form_widget(form.username, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.username) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.roles, 'Role', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.roles) }}
+        {{ form_widget(form.roles, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.roles) }}
+    </div>
+</div>
+{% if form.password is defined %}
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.password, 'Password', {'label_attr' : {'class' : 'form-label' }}) }}
+            {{ form_errors(form.password) }}
+            {{ form_widget(form.password, {'attr' : {'class' : 'form-control'}}) }}
+            {{ form_help(form.password) }}
+        </div>
+    </div>
+{% endif %}
+
+<div class="row mt-2">
+    <div class="col-12">
+        <button class="btn btn-primary btn-block">{{ button_label|default('Save') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

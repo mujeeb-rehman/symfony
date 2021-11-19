@@ -1,0 +1,57 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12">
+        {{ form_errors(form) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.name, 'Name', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.name) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.title, 'Title', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.title) }}
+        {{ form_widget(form.title, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.title) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.username, 'Username', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.username) }}
+        {{ form_widget(form.username, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.username) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.shortBio, 'Short Bio', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.shortBio) }}
+        {{ form_widget(form.shortBio, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.shortBio) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        {{ form_label(form.phone, 'Phone', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.phone) }}
+        {{ form_widget(form.phone, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.phone) }}
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-12">
+        <button class="btn btn-primary btn-block">{{ button_label|default('Save') }}</button>
+    </div>
+</div>
+{#{{ form_widget(form) }}#}
+
+
+{{ form_end(form) }}
+

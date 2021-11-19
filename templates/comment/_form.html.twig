@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-6">
+        {{ form_errors(form) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        {{ form_label(form.body, 'Your Thoughts', {'label_attr' : {'class' : 'form-label' }}) }}
+        {{ form_errors(form.body) }}
+        {{ form_widget(form.body, {'attr' : {'class' : 'form-control'}}) }}
+        {{ form_help(form.body) }}
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-6">
+        <button class="btn btn-primary btn-block">{{ button_label|default('Submit') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}
